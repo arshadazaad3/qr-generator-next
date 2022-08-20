@@ -30,7 +30,7 @@ export default function Navbar() {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center mr-10">
                   <Image src="/logo.png" width="32" height="32" color="#FFF" />
-                  <div className="ml-5 text-white font-bold"> QR Code Gen</div>
+                  <div className="ml-5 text-white font-bold"> QR Planet</div>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">

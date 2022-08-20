@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>QR Code Gen</title>
+        <title>QR Planet</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
