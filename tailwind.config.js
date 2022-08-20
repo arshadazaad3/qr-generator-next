@@ -1,9 +1,16 @@
 const path = require("path");
 
 module.exports = {
-  content: [path.join(__dirname, "./src/pages/**/*.{js,ts,jsx,tsx}")],
+  content: [
+    path.join(__dirname, "./src/pages/**/*.{js,ts,jsx,tsx}"),
+    path.join(__dirname, "./src/components/**/*.{js,ts,jsx,tsx}"),
+  ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "drop-down-bg": "#698bcf",
+      },
+    },
     screens: {
       sm: "400px",
       // => @media (min-width: 640px) { ... }
