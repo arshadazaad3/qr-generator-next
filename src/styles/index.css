@@ -15,3 +15,7 @@
   border-color: Transparent;
   overflow: auto;
 }
+
+#qr-code-hidden {
+  display: hidden !important;
+}
