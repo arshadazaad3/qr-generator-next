@@ -113,10 +113,10 @@ function QrGenerator(props: any) {
   return (
     <>
       <div
-        className="w-full rounded-3xl h-full p-3 justify-center flex content-center items-center flex-col space-y-10"
+        className="rounded-3xl h-full p-3 justify-center flex content-center items-center flex-col space-y-10"
         style={{
           backgroundColor: "#00248b",
-          minHeight: 500,
+          minHeight: 700,
         }}
       >
         <div

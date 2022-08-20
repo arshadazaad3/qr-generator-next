@@ -1,10 +1,14 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import { NavBar } from "../../components";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import { useState } from 'react';
+import { NavBar } from '../../components';
 
-import QrGenerator from "./components/QrGenerator";
+import QrGenerator from './components/QrGenerator';
+import TextInput from './components/TextInput';
 
 const Home: NextPage = () => {
+  const [inputValue, setInputValue] = useState('www.tasa.com.my');
+
   return (
     <>
       <Head>
@@ -19,11 +23,17 @@ const Home: NextPage = () => {
       <main>
         <div
           className="sm:mt-52 flex flex-col-reverse  md:flex-row md:m-5 mt-10 rounded-3xl bottom-0 absolute top-12 right-0 left-0 p-5"
-          style={{ backgroundColor: "#ecf7ff", minHeight: 500 }}
+          style={{
+            backgroundColor: '#ecf7ff',
+            // minHeight: 700,
+            // maxHeight: 2000,
+          }}
         >
-          <div className="w-full md:w-2/3 mr-24">Div 1</div>
+          <div className="w-full md:w-2/3 mr-24">
+            <TextInput inputValue={inputValue} setInputValue={setInputValue} />
+          </div>
           <div className="w-full md:w-1/2">
-            <QrGenerator />
+            <QrGenerator inputValue={inputValue} />
           </div>
         </div>
       </main>

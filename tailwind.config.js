@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         "drop-down-bg": "#698bcf",
+        "dark-blue": "#00248b",
       },
     },
     screens: {

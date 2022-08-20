@@ -1,25 +1,42 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import type { NextPage } from 'next';
+import Head from 'next/head';
 
-const Home: NextPage = () => {
+function TextInput(props: any) {
+  const { setInputValue, inputValue } = props;
   return (
-    <div>
-      <Head>
-        <title>QR Code Gen</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-
-      <div className="h-screen">
-        <div
-          className=" m-3 top-0 bottom-0 absolute left-0 right-0 rounded-xl p-2 flex flex-wrap	"
-          style={{ backgroundColor: "#ecf7ff" }}
-        >
-          <div className="md:basis-2/4 sm:w-screen sm:basis-4/4 ">01</div>
-          <div className="md:basis-2/4 sm:w-screen sm:basis-4/4">02</div>
+    <div
+      className="w-full rounded-3xl h-full p-3 justify-center flex content-center items-center flex-col space-y-4"
+      style={{
+        minHeight: 500,
+      }}
+    >
+      <div>
+        {/* <div className="text-6xl font-bold" style={{ color: '#00248b' }}>
+          Enter your text
         </div>
+
+         */}
+
+        <div>
+          <textarea
+            id="message"
+            rows={1}
+            className="text-6xl font-bold block p-2.5 w-full border-none bg-transparent active:border-none placeholder:text-dark-blue"
+            placeholder="Enter your text"
+            style={{ color: '#00248b' }}
+            onChange={(e) => {
+              setInputValue(e?.target?.value);
+            }}
+          />
+        </div>
+        {inputValue === 'www.tasa.com.my' && (
+          <div className="text-gray-600 font-medium text-left mt-1 ml-3">
+            Your QR code will be generated automatically
+          </div>
+        )}
       </div>
     </div>
   );
-};
+}
 
-export default Home;
+export default TextInput;
