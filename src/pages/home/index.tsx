@@ -22,11 +22,9 @@ const Home: NextPage = () => {
 
       <main>
         <div
-          className="sm:mt-52 flex flex-col-reverse  md:flex-row md:m-5 mt-10 rounded-3xl bottom-0 absolute top-12 right-0 left-0 p-5"
+          className="sm:mt-12 md:mt-10 flex flex-col-reverse  md:flex-row md:m-5 mt-10 rounded-3xl bottom-0 absolute top-12 right-0 left-0 p-5 sm:h-fit"
           style={{
             backgroundColor: '#ecf7ff',
-            // minHeight: 700,
-            // maxHeight: 2000,
           }}
         >
           <div className="w-full md:w-2/3 mr-24">
