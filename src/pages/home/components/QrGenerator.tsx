@@ -120,12 +120,12 @@ function QrGenerator(props: any) {
         }}
       >
         <div
-          className="drop-shadow-2xl justify-center flex content-center items-center"
+          className="md:drop-shadow-2xl justify-center flex content-center items-center"
           style={{
             maxWidth: 700,
             maxHeight: 700,
-            minWidth: 400,
-            minHeight: 400,
+            minWidth: 300,
+            minHeight: 300,
           }}
         >
           <QRCodeCanvas
