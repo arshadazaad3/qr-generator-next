@@ -13,8 +13,8 @@ module.exports = {
       },
     },
     screens: {
-      sm: "400px",
-      // => @media (min-width: 640px) { ... }
+      sm: "300px",
+      // => @media (min-width: 300px) { ... }
 
       md: "768px",
       // => @media (min-width: 768px) { ... }
