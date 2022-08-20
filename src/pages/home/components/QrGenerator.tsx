@@ -4,11 +4,11 @@ const QrGenerator = () => {
   return (
     <>
       <div
-        className="md:basis-2/4 w-screen sm:basis-4/4 rounded-2xl flex justify-center content-center items-center flex-col"
+        className="w-full rounded-3xl h-full p-3"
         style={{
           backgroundColor: "#00248b",
-          height: "100%",
-          width: "100%",
+          // height: "100%",
+          // width: "100%",
         }}
       >
         <div className="">Hi</div>
