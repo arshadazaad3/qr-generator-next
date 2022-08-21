@@ -18,6 +18,8 @@ const Home: NextPage = () => {
 
   const [isCookieAccepted, setIsCookieAccepted] = useState(false);
 
+  const adsSenseElement = window.document.getElementById('adsense-ad');
+
   useEffect(() => {
     const isCookedAcceptedBefore =
       window.localStorage.getItem('cookie-accepted');
@@ -29,10 +31,17 @@ const Home: NextPage = () => {
     }
   }, []);
 
+  useEffect(() => {
+    // console.log('adsSenseElement', adsSenseElement);
+    // @ts-ignore
+    // console.log('window.adsbygoogle', window.adsbygoogle);
+  }, [adsSenseElement]);
+
   function enableGoogleAdSense() {
     try {
       const head = document.getElementsByTagName('head')[0];
       const scriptElement = document.createElement(`script`);
+      scriptElement.id = 'adsense-ad';
       scriptElement.type = `text/javascript`;
       scriptElement.async;
       scriptElement.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}-${process.env.NEXT_PUBLIC_ADSENSE_ID}`;
@@ -78,11 +87,11 @@ const Home: NextPage = () => {
           <div className="w-full md:w-2/3 lg:mr-14">
             <QrGenerator inputValue={inputValue} />
           </div>
-          {isCookieAccepted && (
+          {/* {isCookieAccepted && (
             <div className="w-full md:w-1/4">
               <Ad />
             </div>
-          )}
+          )} */}
         </div>
       </main>
       <Footer />
