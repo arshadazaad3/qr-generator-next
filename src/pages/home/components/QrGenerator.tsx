@@ -103,7 +103,7 @@ function QrGenerator(props: any) {
                       setSize(parseInt(text));
                     }}
                   >
-                    600
+                    500
                   </a>
                 )}
               </Menu.Item>
