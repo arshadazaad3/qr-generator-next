@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
   const [isCookieAccepted, setIsCookieAccepted] = useState(false);
 
-  const adsSenseElement = window.document.getElementById('adsense-ad');
+  // const adsSenseElement = window.document.getElementById('adsense-ad');
 
   useEffect(() => {
     const isCookedAcceptedBefore =
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
     // console.log('adsSenseElement', adsSenseElement);
     // @ts-ignore
     // console.log('window.adsbygoogle', window.adsbygoogle);
-  }, [adsSenseElement]);
+  }, []);
 
   function enableGoogleAdSense() {
     try {
