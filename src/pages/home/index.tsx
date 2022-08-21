@@ -30,8 +30,10 @@ const Home: NextPage = () => {
           <div className="w-full md:w-2/3 mr-24">
             <TextInput inputValue={inputValue} setInputValue={setInputValue} />
           </div>
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-2/3 md:mr-14">
             <QrGenerator inputValue={inputValue} />
+          </div>
+          <div className="w-full md:w-1/4">
           </div>
         </div>
       </main>
