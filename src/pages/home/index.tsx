@@ -50,11 +50,11 @@ const Home: NextPage = () => {
       <Head>
         <title>QR World</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <script
+        {/* <script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}-${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
           crossOrigin="anonymous"
-        ></script>
+        ></script> */}
       </Head>
 
       <header>
