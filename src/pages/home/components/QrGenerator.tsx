@@ -1,25 +1,27 @@
-import Head from 'next/head';
-import { Fragment, useState } from 'react';
-import { Menu, Transition } from '@headlessui/react';
-import { QRCodeCanvas } from 'qrcode.react';
-import { ChevronDownIcon } from '@heroicons/react/solid';
-import { classNames } from '../../../utils';
+import Head from "next/head";
+import { Fragment, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, Transition } from "@headlessui/react";
+import { QRCodeCanvas } from "qrcode.react";
+import { ChevronDownIcon } from "@heroicons/react/solid";
+
+import { classNames } from "../../../utils";
 
 function QrGenerator(props: any) {
-  const { inputValue = 'www.tasa.com.my' } = props;
+  const { inputValue = "www.tasa.com.my" } = props;
 
   const [size, setSize] = useState(400);
 
   // download QR code
   const downloadQRCode = () => {
     // Generate download with use canvas and stream
-    const canvas = document.getElementById('qr-code-hidden');
+    const canvas = document.getElementById("qr-code-hidden");
     // @ts-ignore
     const pngUrl = canvas
       // @ts-ignore
-      .toDataURL('image/png')
-      .replace('image/png', 'image/octet-stream');
-    let downloadLink = document.createElement('a');
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    let downloadLink = document.createElement("a");
     downloadLink.href = pngUrl;
     downloadLink.download = `qr-code.png`;
     document.body.appendChild(downloadLink);
@@ -35,7 +37,7 @@ function QrGenerator(props: any) {
       >
         <div>
           <Menu.Button className=" text-white bg-drop-down-bg pb-4 pt-4 text-lg  w-full inline-flex justify-center rounded-md border border-drop-down-bg shadow-sm px-4 py-2  font-medium hover:text-gray-700  hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-            {size === 400 ? 'Size' : `${size} px`}
+            {size === 400 ? "Size" : `${size} px`}
             <ChevronDownIcon
               className="-mr-1 ml-2 h-5 w-5 mt-1.5"
               aria-hidden="true"
@@ -59,8 +61,8 @@ function QrGenerator(props: any) {
                   <a
                     // href="#"
                     className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm '
+                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      "block px-4 py-2 text-sm "
                     )}
                     onClick={(e: any) => {
                       const { text } = e?.target;
@@ -76,8 +78,8 @@ function QrGenerator(props: any) {
                   <a
                     href="#"
                     className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
+                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      "block px-4 py-2 text-sm"
                     )}
                     onClick={(e: any) => {
                       const { text } = e?.target;
@@ -93,15 +95,15 @@ function QrGenerator(props: any) {
                   <a
                     href="#"
                     className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
+                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      "block px-4 py-2 text-sm"
                     )}
                     onClick={(e: any) => {
                       const { text } = e?.target;
                       setSize(parseInt(text));
                     }}
                   >
-                    600
+                    500
                   </a>
                 )}
               </Menu.Item>
@@ -114,10 +116,14 @@ function QrGenerator(props: any) {
 
   return (
     <>
-      <div
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        transition={{ type: "spring", duration: 1.5 }}
         className="rounded-3xl h-full p-3 justify-center flex content-center items-center flex-col space-y-10"
         style={{
-          backgroundColor: '#00248b',
+          backgroundColor: "#00248b",
           minHeight: 700,
         }}
       >
@@ -126,19 +132,30 @@ function QrGenerator(props: any) {
           style={{
             maxWidth: 700,
             maxHeight: 700,
-            minWidth: 300,
-            minHeight: 300,
+            minWidth: 250,
+            minHeight: 250,
           }}
         >
-          <QRCodeCanvas
-            id="qr-code"
-            value={inputValue}
-            size={size}
-            bgColor="#00248b"
-            fgColor="#fff"
-            level={'H'}
-            includeMargin={true}
-          />
+          <AnimatePresence>
+            <motion.div
+              className="item"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", duration: 1.5 }}
+            >
+              <QRCodeCanvas
+                id="qr-code"
+                value={inputValue}
+                size={size}
+                bgColor="#00248b"
+                fgColor="#fff"
+                level={"H"}
+                includeMargin={true}
+              />
+            </motion.div>
+          </AnimatePresence>
+
           <QRCodeCanvas
             id="qr-code-hidden"
             className="hidden"
@@ -146,12 +163,26 @@ function QrGenerator(props: any) {
             size={size}
             bgColor="#FFF"
             fgColor="#000"
-            level={'H'}
+            level={"H"}
           />
         </div>
-        <div className="w-6/12">{renderSizes()}</div>
+        <motion.div
+          className="w-6/12"
+          initial={{ scale: 2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
+          transition={{ type: "spring", duration: 1.5 }}
+        >
+          {renderSizes()}
+        </motion.div>
 
-        <div className="mt-3">
+        <motion.div
+          className="mt-3"
+          initial={{ scale: 2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
+          transition={{ type: "spring", duration: 1.5 }}
+        >
           <button
             onClick={downloadQRCode}
             className="border rounded-3xl p-3 w-40 pt-5 pb-5 flex justify-center text-white font-bold cursor-pointer hover:bg-blue-400 bg-blue-500 border-blue-500 drop-shadow-2xl"
@@ -159,8 +190,8 @@ function QrGenerator(props: any) {
           >
             Save
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   );
 }
