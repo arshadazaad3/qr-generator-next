@@ -1,18 +1,11 @@
-import Head from 'next/head';
-import { Fragment, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, Transition } from '@headlessui/react';
-import { QRCodeCanvas } from 'qrcode.react';
-import { ChevronDownIcon } from '@heroicons/react/solid';
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
-import { classNames } from '../../../utils';
-
-function Ad(props: any) {
-  const { inputValue = 'www.tasa.com.my' } = props;
-
-  const [size, setSize] = useState(400);
-
-  // download QR code
+function Ad() {
+  useEffect(() => {
+    // @ts-ignore
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }, []);
 
   return (
     <>
@@ -27,7 +20,16 @@ function Ad(props: any) {
           minHeight: 700,
           minWidth: 300,
         }}
-      ></motion.div>
+      >
+        <div>
+          <ins
+            className="adsbygoogle"
+            style={{ display: 'inline-block', width: '728px', height: '90px' }}
+            data-ad-client={`${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}-${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
+            data-ad-slot={process.env.NEXT_PUBLIC_ADSENSE_ID}
+          ></ins>
+        </div>
+      </motion.div>
     </>
   );
 }
