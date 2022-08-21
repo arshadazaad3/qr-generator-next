@@ -1,17 +1,18 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import React, { useState } from "react";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import React, { useState } from 'react';
 
-import { NavBar } from "../../components";
-import QrGenerator from "./components/QrGenerator";
-import TextInput from "./components/TextInput";
+import { NavBar } from '../../components';
+import Ad from './components/Ad';
+import QrGenerator from './components/QrGenerator';
+import TextInput from './components/TextInput';
 
 /**
  * Home Page
  * @returns {React.Component}
  */
 const Home: NextPage = () => {
-  const [inputValue, setInputValue] = useState("www.tasa.com.my");
+  const [inputValue, setInputValue] = useState('www.tasa.com.my');
 
   return (
     <>
@@ -26,9 +27,9 @@ const Home: NextPage = () => {
 
       <main>
         <div
-          className="sm:mt-12 md:mt-10 flex flex-col-reverse  md:flex-row md:m-5 mt-10 rounded-3xl bottom-0 absolute top-12 right-0 left-0 p-5 sm:h-fit md:h-screen"
+          className="sm:mt-12 md:mt-10 flex flex-col md:flex-row md:m-5 mt-10 rounded-3xl bottom-0 absolute top-12 right-0 left-0 p-5 sm:h-fit md:h-screen"
           style={{
-            backgroundColor: "#ecf7ff",
+            backgroundColor: '#ecf7ff',
           }}
         >
           <div className="w-full md:w-2/3 mr-24">
@@ -38,6 +39,7 @@ const Home: NextPage = () => {
             <QrGenerator inputValue={inputValue} />
           </div>
           <div className="w-full md:w-1/4">
+            <Ad />
           </div>
         </div>
       </main>
