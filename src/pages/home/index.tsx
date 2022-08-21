@@ -27,7 +27,6 @@ const Home: NextPage = () => {
     } else {
       setIsCookieAccepted(false);
     }
-    console.log(process.env.NEXT_PUBLIC_ADSENSE_ID);
   }, []);
 
   function enableGoogleAdSense() {
@@ -69,7 +68,6 @@ const Home: NextPage = () => {
         )}
 
         <div
-          // className="sm:mt-12 md:mt-10 flex flex-col md:flex-row md:m-5 mt-10 rounded-3xl bottom-0 absolute top-12 right-0 left-0 p-5 sm:h-fit md:h-screen"
           className="sm:mt-12 md:mt-10 flex flex-col lg:flex-row md:m-5 mt-10 rounded-3xl right-0 left-0 lg:p-5 sm:h-fit "
           style={{
             backgroundColor: '#ecf7ff',
