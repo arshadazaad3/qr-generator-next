@@ -116,7 +116,11 @@ function QrGenerator(props: any) {
 
   return (
     <>
-      <div
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        transition={{ type: "spring", duration: 1.5 }}
         className="rounded-3xl h-full p-3 justify-center flex content-center items-center flex-col space-y-10"
         style={{
           backgroundColor: "#00248b",
@@ -187,7 +191,7 @@ function QrGenerator(props: any) {
             Save
           </button>
         </motion.div>
-      </div>
+      </motion.div>
     </>
   );
 }
