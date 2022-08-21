@@ -31,13 +31,10 @@ function TextInput(props: any) {
             }}
           />
         </div>
-        {(inputValue === "www.tasa.com.my" ||
-          inputValue === "" ||
-          !inputValue) && (
-          <div className="text-gray-600 font-medium text-left mt-1 ml-3">
-            Your QR code will be generated automatically
-          </div>
-        )}
+
+        <div className="text-gray-600 font-medium text-left mt-1 ml-3">
+          Your QR code will be generated automatically
+        </div>
       </motion.div>
     </div>
   );
